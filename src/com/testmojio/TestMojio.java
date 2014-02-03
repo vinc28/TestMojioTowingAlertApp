@@ -33,27 +33,32 @@ public class TestMojio extends ActivityInstrumentationTestCase2 {
 	//Enter credentials and click log in before each test
 	protected void setUp() throws Exception {
 		solo = new Solo(getInstrumentation(), getActivity());
+		//Waiting for LoginActivity slows the tests down, it waits at the LoginActivity page for a while before entering credentials
+		//It seems to work fine without waiting for LoginActivity and instead enters the credentials right away
+		//solo.waitForActivity("LoginActivity");
 		solo.enterText(0, "vchiu86");
 		solo.enterText(1, "capstone");
 		solo.clickOnButton("Log In");
 	}
 	
-	//Test to see whether Notifications page loads or not
+	//Test to see whether Notifications page loads or not by looking for the word "Date"
 	public void testNotificationsActivity() {
 		//Navigate to and make sure we are on the Notifications page 
+		String keyWord = "Date";
 		solo.waitForActivity("MainMenuActivity");
 		solo.clickOnButton("Notifications");
 		solo.waitForActivity("NotificationsActivity");
-		assertTrue(solo.searchText("Date"));
+		assertTrue(solo.searchText(keyWord));
 	}
 	
-	//Test to see whether the Map page loads or not
+	//Test to see whether the Map page loads or not by looking for the word "Location"
 	public void testMapActivity() {
 		//Navigate to and make sure we are on the Maps page 
+		String keyWord = "Location";
 		solo.waitForActivity("MainMenuActivity");
 		solo.clickOnButton("Map");
 		solo.waitForActivity("MapsActivity");
-		assertTrue(solo.searchText("Location"));
+		assertTrue(solo.searchText(keyWord));
 	}
 	
 	//Test to see whether the Settings page loads or not and to make sure the buttons/checkboxes can be pressed
