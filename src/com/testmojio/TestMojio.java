@@ -12,6 +12,7 @@ import android.test.ActivityInstrumentationTestCase2;
 public class TestMojio extends ActivityInstrumentationTestCase2 {
 	
 	private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "eecegroup32.mojiotowingalert.android.MainActivity";
+	
 	private static Class<?> launcherActivityClass;
     static{
             try {
