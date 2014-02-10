@@ -70,7 +70,7 @@ public class LoginTest extends ActivityInstrumentationTestCase2 {
 	
 	//Wait 3 seconds between each test case
 	protected void tearDown() throws Exception {
-		solo.sleep(4000);
+		solo.sleep(5000);
 	}
 
 }
