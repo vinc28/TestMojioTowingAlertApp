@@ -64,12 +64,12 @@ public class LoginTest extends ActivityInstrumentationTestCase2 {
 		//Wait 2 seconds before pressing Log Out
 		solo.sleep(2000);
 		solo.clickOnButton("Log Out");
-		solo.finishOpenedActivities();
 		solo.goBack();
 	}
 	
 	//Wait 3 seconds between each test case
 	protected void tearDown() throws Exception {
+		solo.finishOpenedActivities();
 		solo.sleep(7000);
 	}
 
