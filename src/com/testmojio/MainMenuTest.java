@@ -7,7 +7,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import com.robotium.solo.Solo;
 
 @SuppressWarnings("rawtypes")
-public class MapActivityTest extends ActivityInstrumentationTestCase2 {
+public class MainMenuTest extends ActivityInstrumentationTestCase2 {
 	
 	private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "eecegroup32.mojiotowingalert.android.LoginActivity";
 	
@@ -21,7 +21,7 @@ public class MapActivityTest extends ActivityInstrumentationTestCase2 {
             }
     }
 
-	public MapActivityTest() {
+	public MainMenuTest() {
 		super(launcherActivityClass);
 		// TODO Auto-generated constructor stub
 	}
@@ -39,19 +39,29 @@ public class MapActivityTest extends ActivityInstrumentationTestCase2 {
 			solo.clickOnButton("Log In");
 		}
 		
-		//Test to see whether the Map page loads or not by looking for the word "Location"
-		public void testMapLoad() {
-			//Navigate to and make sure we are on the Maps page 
-			String keyWord = "Location";
+		//Click on the button to select device, make sure the text Select Device comes up, press back to get rid of the popup
+		public void testSelectDeviceButton() {
+			String keyWord = "Select Device";
 			solo.waitForActivity("MainMenuActivity");
-			solo.clickOnButton("Map");
-			solo.waitForActivity("MapsActivity");
+			solo.clickOnButton(0);
+			solo.waitForText(keyWord);
+			assertTrue(solo.searchText(keyWord));
+			solo.goBack();
+		}
+		
+		//Click on the map auto refresh toggle button, see if the toast comes up
+		public void testMapRefreshButton() {
+			String keyWord = "Map Auto Refresh";
+			solo.waitForActivity("MainMenuActivity");
+			solo.clickOnButton(1);
+			solo.waitForText(keyWord);
 			assertTrue(solo.searchText(keyWord));
 		}
 		
-		//After each test, go back to the main menu and click log out
+		
+		//After each test, click logout
 		protected void tearDown() throws Exception {
-			solo.goBack();
+			solo.getText("Log Out").isEnabled();
 			solo.clickOnButton("Log Out");
 			solo.finishOpenedActivities();
 		}

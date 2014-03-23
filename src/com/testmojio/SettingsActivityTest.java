@@ -44,7 +44,7 @@ public class SettingsActivityTest extends ActivityInstrumentationTestCase2 {
   		
   		//Navigate to and make sure we are on the Subscriptions page 
   		solo.waitForActivity("MainMenuActivity");
-  		solo.clickOnButton("Settings");
+  		solo.clickOnButton(2);
   		solo.waitForActivity("SettingsActivity");
   		assertTrue(solo.searchText("Subscriptions"));
   	
@@ -90,7 +90,7 @@ public class SettingsActivityTest extends ActivityInstrumentationTestCase2 {
   		boolean boxStatus0, boxStatus1, boxStatus2, boxStatus3;
   		//Navigate to and make sure we are on the Subscriptions page 
   		solo.waitForActivity("MainMenuActivity");
-  		solo.clickOnButton("Settings");
+  		solo.clickOnButton(2);
   		solo.waitForActivity("SettingsActivity");
   		assertTrue(solo.searchText("Subscriptions"));
   		solo.clickOnButton(0);
@@ -103,7 +103,7 @@ public class SettingsActivityTest extends ActivityInstrumentationTestCase2 {
   		boxStatus3 = solo.isToggleButtonChecked(1);
   		solo.goBack();
   		solo.waitForActivity("MainMenuActivity");
-  		solo.clickOnButton("Settings");
+  		solo.clickOnButton(2);
   		solo.waitForActivity("SettingsActivity");
   		assertTrue(solo.searchText("Subscriptions"));
   		assertTrue(boxStatus0 == solo.isToggleButtonChecked(0));
