@@ -65,10 +65,10 @@ public class NotificationsActivityTest extends ActivityInstrumentationTestCase2 
 			|| solo.searchText("Sunday"));
 	}
 	
-	//Test to see if notifications page contains a specific date, Thursday, March 20, 2014
+	//Test to see if notifications page contains a specific date, Wednesday, April 2, 2014
 	public void testNotificationsActivityContainsASpecificDate() {
 		//Navigate to and make sure we are on the Notifications page 
-		String keyWord = "Thursday, March 20, 2014";
+		String keyWord = "Wednesday, April 2, 2014";
 		solo.clickOnButton("Notifications");
 		solo.waitForActivity("NotificationsActivity");
 		assertTrue(solo.searchText(keyWord));
@@ -104,10 +104,10 @@ public class NotificationsActivityTest extends ActivityInstrumentationTestCase2 
 		solo.goBack();
 	}
 		
-	//Test to see if notifications page contains a specific date, Thursday, March 20, 2014
+	//Test to see if notifications page contains a specific date, Wednesday, April 2, 2014
 	public void testSpecificDetailsPage() {
 		//Navigate to and make sure we are on the Notifications page 
-		String keyWord = "Thursday, March 20, 2014";
+		String keyWord = "Wednesday, April 2, 2014";
 		solo.clickOnButton("Notifications");
 		solo.waitForActivity("NotificationsActivity");
 		solo.clickOnText(keyWord);
