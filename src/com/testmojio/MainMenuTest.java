@@ -41,8 +41,9 @@ public class MainMenuTest extends ActivityInstrumentationTestCase2 {
 		
 		//Click on the button to select device, make sure the text Select Device comes up, press back to get rid of the popup
 		public void testSelectDeviceButton() {
-			String keyWord = "Select Device";
+			String keyWord = "Select Device or Event";
 			solo.waitForActivity("MainMenuActivity");
+			solo.sleep(1500);
 			solo.clickOnButton(0);
 			solo.waitForText(keyWord);
 			assertTrue(solo.searchText(keyWord));
@@ -51,8 +52,9 @@ public class MainMenuTest extends ActivityInstrumentationTestCase2 {
 		
 		//Click on the map auto refresh toggle button, see if the toast comes up
 		public void testMapRefreshButton() {
-			String keyWord = "Map Auto Refresh";
+			String keyWord = "Map Updated";
 			solo.waitForActivity("MainMenuActivity");
+			solo.sleep(5000);
 			solo.clickOnButton(1);
 			solo.waitForText(keyWord);
 			assertTrue(solo.searchText(keyWord));

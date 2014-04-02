@@ -136,13 +136,13 @@ public class NotificationsActivityTest extends ActivityInstrumentationTestCase2 
 		solo.waitForText("Device:");
 		solo.clickOnButton("Filter");
 		solo.waitForText("Select Dongles");
-		solo.clickOnButton("Name:vctest2");
+		solo.clickOnButton("vctest2");
 		solo.goBack();
 		solo.waitForText("Device:");
 		assertTrue(!(solo.searchText(keyWord)));
 		solo.clickOnButton("Filter");
 		solo.waitForText("Select Dongles");
-		solo.clickOnButton("Name:vctest2");
+		solo.clickOnButton("vctest2");
 		solo.goBack();
 		assertTrue((solo.searchText(keyWord)));
 	}
